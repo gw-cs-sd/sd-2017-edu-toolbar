@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle edu-toolbar",
+        "command": "edu-toolbar:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "edu-toolbar",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "edu-toolbar:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

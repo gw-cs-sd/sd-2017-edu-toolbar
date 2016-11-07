@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!-- Declares the root element that allows behaviour to be modified through Angular custom HTML tags. -->
+<html ng-app="scotchApp">
+    <head>
+        <title>edu-toolbar</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <link rel="stylesheet" type="text/css" href="http://codemirror.net/lib/codemirror.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+        <!-- SPELLS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+        <script src="http://codemirror.net/lib/codemirror.js"></script>
+        <script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+        <script src="script/ui-codemirror.js"></script>
+        <script src="script/script.js"></script>
+    </head>
+    <body ng-controller="mainController">
+
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">edu-toolbar</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+
+                        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">File
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    Home</a>
+                            </li>
+                            <li>
+                                <a href="#new">
+                                    <i class="fa fa-shield"></i>New</a>
+                            </li>
+                            <li>
+                                <a href="#open">
+                                    <i class="fa fa-shield"></i>Open</a>
+                            </li>
+                            <li>
+                                <a href="#tutorial">
+                                    <i class="fa fa-shield"></i>Tutorials</a>
+                            </li>
+                            <li>
+                                <a href="#interact">
+                                    <i class="fa fa-shield"></i>Interact</a>
+                            </li>
+                        </ul>
+                    </div>
+            </ul>
+        </div>
+    </nav>
+    <div id="main">
+
+        <!-- angular templating -->
+        <!-- this is where content will be injected -->
+        <div ng-view></div>
+
+    </div>
+    <footer class="footer">
+        <p>Created by : Austin Moon</a>
+    </p>
+</footer>
+</body>
+
+</html>
