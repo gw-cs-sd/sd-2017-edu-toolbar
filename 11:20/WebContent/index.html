@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <title>Codingfolio</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" /> 
+    <link href="https://codemirror.net/lib/codemirror.css" rel="stylesheet" type="text/css" />
+    <link href="https://codemirror.net/theme/eclipse.css" rel="stylesheet" type="text/css" />
+       
+     <link rel="stylesheet" href="assets/cstyles.css" />
+  </head>
+
+  <body>
+   <header>
+            <nav class="navbar" role="navigation"><!-- header css style -->
+  <div class="navbar-header">
+  </div>
+</nav>
+        </header>
+          <div ng-view></div> 
+    <script src="//code.jquery.com/jquery-2.0.3.min.js"></script>
+    <script src="//code.angularjs.org/1.2.20/angular.js"></script>
+    <script src="//code.angularjs.org/1.2.20/angular-route.js"></script>
+    <script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
+    <script src="script.js"></script>
+    <script src="modules/authentication/services.js"></script>
+    <script src="modules/authentication/controllers.js"></script>
+    <script src="modules/home/controllers.js"></script>
+    	<script src="https://codemirror.net/lib/codemirror.js"></script>
+    	<script src="http://codemirror.net/addon/edit/matchbrackets.js"></script>
+  </body>
+
+</html>
