@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="java-tutorial:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/java_tutorial_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="java-tutorial/web/Web2" />
+      <element id="javaee-facet-resources" facet="java-tutorial/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jackson-annotations-2.8.5" />
+        </element>
+        <element id="directory" name="classes">
+          <element id="module-output" name="java-tutorial" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
