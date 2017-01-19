@@ -1,4 +1,4 @@
-package turorial.question;
+package tutorial.question;
 
 public enum Theme {
     BEGINNING("beginning"),

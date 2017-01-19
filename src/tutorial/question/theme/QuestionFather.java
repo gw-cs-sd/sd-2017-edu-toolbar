@@ -1,7 +1,7 @@
-package turorial.question.theme;
+package tutorial.question.theme;
 
-import turorial.Utils;
-import turorial.question.QA;
+import tutorial.Utils;
+import tutorial.question.QA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.List;
 public abstract class QuestionFather {
     public QA getRandomQuestonForTag(String tag) {
         tag = tag.toLowerCase();
+        System.out.println("Questionfather:getRand: tag:"+tag);
         List<QA> list = new ArrayList<QA>();
 
         for (String tags : getTagsForQuestion1()) {

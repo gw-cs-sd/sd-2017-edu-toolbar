@@ -1,16 +1,29 @@
-package turorial.question.theme;
+package tutorial.question.theme;
 
-import turorial.question.QA;
+import tutorial.question.QA;
 
-import static turorial.Utils.generateRandom;
+import static tutorial.Utils.generateRandom;
 
-public class Beggining extends QuestionFather {
+import java.util.Random;
+
+public class For extends QuestionFather {
 
     static String[] voc = {"alligator", "ant", "bear", "bee", "bird", "camel", "cat",
             "cheetah", "chicken", "chimpanzee", "cow", "crocodile", "deer", "dog", "dolphin",
             "duck", "eagle", "elephant", "fish", "frog", "giraffe",
             "goldfish", "hamster", "hippopotamus", "kangaroo", "lion", "monkey", "panda"};
     /*        kitten lio  lobster monkey  octopus  owl panda pig puppy    rabbit}*/
+    
+    String [] farray = new String [] {
+			
+			
+		     "Write a code to display the first 10 numbers 1,2,...10",
+		     "Write a code to display numbers in reverse 10,9,8,...1",
+		     "Write a code to display numbers 2,4,6,8...20",
+		     "Write a code to display numbers 1,3,5,7.....21",
+		     "Write a code to display the string HELLO WORLD in reverse."
+		       
+	    };
 
     private String generateSolution1(int n, String str) {
         String sol;
@@ -25,29 +38,44 @@ public class Beggining extends QuestionFather {
 
     @Override
     public String[] getTagsForQuestion1() {
-        return new String[]{"string", "substring", "length", "char", "index","beg1"};
+        return new String[]{"for"};
     }
 
     @Override
     public String[] getTagsForQuestion2() {
-        return new String[]{"string", "substring", "length", "char", "index", "charAt", "if","beg2"};
+    	 return new String[]{"for"};
     }
 
     @Override
     public String[] getTagsForQuestion3() {
-        return new String[]{"int", "boolean", "mod", "multiple", "if","beg3"};
+    	 return new String[]{"for"};
     }
 
     @Override
     public String[] getTagsForQuestion4() {
-        return new String[]{"string", "substring", "length", "char", "int", "if","beg4"};
+    	 return new String[]{"for"};
     }
 
     @Override
     public String[] getTagsForQuestion5() {
-        return new String[]{"range", "int", "boolean", "if","beg5"};
+    	 return new String[]{"for"};
     }
 
+    
+    //
+    public QA generateQuestion() {
+    	 Random rand = new Random();
+    	 int i1 = rand.nextInt(5);
+    	 String quest  = farray[i1];
+    	 System.out.println("For.java:teQuestion: i1:"+i1);
+    	 return new QA(quest, " "," ");
+    	
+    }
+    
+//    
+    
+    
+    
     @Override
     public QA generateQuestion1() {
 

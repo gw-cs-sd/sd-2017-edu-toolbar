@@ -1,4 +1,4 @@
-import turorial.Global;
+import tutorial.Global;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

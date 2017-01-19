@@ -1,15 +1,16 @@
-package turorial;
+package tutorial;
 
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import turorial.code.JavaCodeRunner;
-import turorial.question.QA;
-import turorial.question.QuestionManager;
-import turorial.question.Theme;
+import tutorial.code.JavaCodeRunner;
+import tutorial.question.QA;
+import tutorial.question.QuestionManager;
+import tutorial.question.Theme;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by Austin Moon on 11.28.16.
@@ -40,7 +41,8 @@ public class Global {
         user = new User();
     }
 
-    public QA getQAForTags(String string) {
+    public List getQAForTags(String string) {
+    	System.out.println("Global: getQAforTags method");
         return questionManager.generateQuestion(string.split("\\s+"));
     }
 

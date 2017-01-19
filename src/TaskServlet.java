@@ -1,5 +1,5 @@
-import turorial.Global;
-import turorial.question.QA;
+import tutorial.Global;
+import tutorial.question.QA;
 
 import java.io.IOException;
 

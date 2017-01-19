@@ -1,8 +1,8 @@
-package turorial.question.theme;
+package tutorial.question.theme;
 
-import turorial.question.QA;
+import tutorial.question.QA;
 
-import static turorial.Utils.generateRandom;
+import static tutorial.Utils.generateRandom;
 
 public class Numbers extends QuestionFather {
 

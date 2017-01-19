@@ -1,4 +1,4 @@
-package turorial.code;
+package tutorial.code;
 
 public class JavaCodeRunner {
     public String runCode(String program) {

@@ -1,8 +1,8 @@
-package turorial;
+package tutorial;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import turorial.question.QA;
-import turorial.question.Theme;
+import tutorial.question.QA;
+import tutorial.question.Theme;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package turorial.code;
+package tutorial.code;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

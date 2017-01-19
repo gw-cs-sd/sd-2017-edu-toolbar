@@ -1,4 +1,4 @@
-package turorial.question;
+package tutorial.question;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

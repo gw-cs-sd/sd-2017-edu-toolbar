@@ -1,4 +1,4 @@
-package turorial;
+package tutorial;
 
 public class MainForTest {
     public static void main(String... args) {

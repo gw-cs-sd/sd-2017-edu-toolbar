@@ -1,8 +1,10 @@
-package turorial.question.theme;
+package tutorial.question.theme;
 
-import turorial.question.QA;
+import tutorial.question.QA;
 
-import static turorial.Utils.generateRandom;
+import static tutorial.Utils.generateRandom;
+
+import java.util.Random;
 
 public class Strings extends QuestionFather {
     static String[] voc = {"alligator", "ant", "bear", "bee", "bird", "camel", "cat",
@@ -11,7 +13,16 @@ public class Strings extends QuestionFather {
             "goldfish", "hamster", "hippopotamus", "kangaroo", "lion", "monkey", "panda"};
     /*        kitten lio  lobster monkey  octopus  owl panda pig puppy    rabbit}*/
 
-
+    String [] stringsarray = new String [] {
+			
+			
+		     "Write a code to display the number of characters in a String",
+		     "Write a code to reverse a given string ",
+		     "Write a code to check if a given string contains the word CHA",
+		     "Write a code to add two strings ",
+		     "Write a code to display the number of words in a sentence"
+		       
+	    };
     private String generateSolution1(int n, String b) {
         String sol;
         sol = "int n=" + n + ";\n" +
@@ -26,6 +37,19 @@ public class Strings extends QuestionFather {
         return sol;
     }
 
+    //
+    public QA generateQuestion() {
+    	 Random rand = new Random();
+    	 int i1 = rand.nextInt(5);
+    	 String quest  = stringsarray[i1];
+    	 System.out.println("For.java:teQuestion: i1:"+i1);
+    	 return new QA(quest, " "," ");
+    	
+    }
+    
+//    
+    
+    
     @Override
     public String[] getTagsForQuestion1() {
         return new String[]{"String", "substring", "length", "char", "for", "if", "int","str1"};

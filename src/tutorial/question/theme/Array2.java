@@ -1,10 +1,22 @@
-package turorial.question.theme;
+package tutorial.question.theme;
 
-import turorial.question.QA;
+import tutorial.question.QA;
 
-import static turorial.Utils.generateRandom;
+import static tutorial.Utils.generateRandom;
 
-public class Array extends QuestionFather {
+public class Array2 extends QuestionFather {
+	
+	String [] qarray = new String [] {
+		
+		
+		     "Write a code to find the sum of numbers in an array.",
+		     "Write a code to find the sum of even numbers in an array.",
+		     "Write a code to find the sum of odd numbers in an array.",
+		     "Write a code to find the greatest number in an array.",
+		     "Write a code to find the smallest number in an array."
+		       
+	    };
+	
 
     private int[] generateIntArr(int n, int a, int b) {
         int[] arr = new int[n];

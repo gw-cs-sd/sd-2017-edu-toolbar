@@ -1,4 +1,4 @@
-package turorial;
+package tutorial;
 
 import java.util.concurrent.ThreadLocalRandom;
 

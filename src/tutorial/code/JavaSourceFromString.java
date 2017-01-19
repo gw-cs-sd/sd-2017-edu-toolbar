@@ -1,4 +1,4 @@
-package turorial.code;
+package tutorial.code;
 
 import javax.tools.SimpleJavaFileObject;
 import java.net.URI;
