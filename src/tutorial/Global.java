@@ -3,6 +3,10 @@ package tutorial;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationConfig;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import jdk.nashorn.internal.scripts.JO;
 import tutorial.code.JavaCodeRunner;
 import tutorial.question.QA;
 import tutorial.question.QuestionManager;
@@ -10,7 +14,10 @@ import tutorial.question.Theme;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 /**
  * Created by Austin Moon on 11.28.16.
@@ -43,14 +50,21 @@ public class Global {
 
     public List getQAForTags(String string) {
     	System.out.println("Global: getQAforTags method");
-        return questionManager.generateQuestion(string.split("\\s+"));
-    }
+       try
+       {
+    	   return questionManager.generateQuestion(string.split("\\s+"));
+       }
+       catch (Exception e) {
+		return null;
+	}
+       }
+    
 
     public boolean runCode(String program, QA qa) {
         try {
             String res = javaCodeRunner.runCode(program);
             System.out.println("Res = " + res);
-            boolean val = res.equals(qa.getAnswer());
+            boolean val = res.equals("true");
             if (val) {
                 user.getAns().add(program);
                 user.getQa().add(qa);
@@ -58,7 +72,8 @@ public class Global {
             }
             return val;
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
+            System.out.println("runcode() error");
+        	ex.printStackTrace();
         }
         return false;
     }
@@ -73,14 +88,20 @@ public class Global {
 
     public boolean register(String login, String password) {
         File root = checkUsersFolder();
+        System.out.println("check user folder");
         File[] fileList = getFolderFiles(root);
+        System.out.println("user Files");
+        if(fileList!=null)
+        {
         for (File file : fileList) {
             if (file.getName().equals(login)) {
                 return false;
             }
         }
+        }
         user = new User(login, password);
         saveUser();
+        System.out.println("user save");
         return true;
     }
 
@@ -96,7 +117,7 @@ public class Global {
                         user = local;
                         return true;
                     }
-                } catch (IOException e) {
+                } catch (Exception e) {
                     System.err.println("Can't read file");
                     e.printStackTrace();
                 }
@@ -108,9 +129,16 @@ public class Global {
 
     public void saveUser() {
         ObjectMapper mapper = new ObjectMapper();
+        String jsonString = "{\"login\":\""+user.getLogin()+"\",\"password\":\""+user.getPassword()+"\"}";
         ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
         try {
-            writer.writeValue(new File("users/" + user.getLogin()), user);
+        	User myuser = mapper.readValue(jsonString, User.class);
+        	System.out.println(myuser);
+            mapper.enable(SerializationFeature.INDENT_OUTPUT);
+        	jsonString = mapper.writeValueAsString(myuser);
+        	//JOptionPane.showConfirmDialog(null, jsonString);
+        	System.out.println(jsonString);
+            writer.writeValue(new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users\\" + user.getLogin()), myuser);
         } catch (IOException e) {
             System.err.println("Can't save user");
             e.printStackTrace();
@@ -118,9 +146,10 @@ public class Global {
     }
 
     public static File checkUsersFolder() {
-        File file = new File("users");
+        File file = new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users");
         if (!file.isDirectory() || !file.exists()) {
             System.out.println("Can't find users folder. Creating new");
+            //File userfile = new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users\\"+);
             if (!file.mkdir()) {
                 System.err.println("Can't create users folder");
             }
@@ -132,6 +161,7 @@ public class Global {
         File[] listFiles = root.listFiles();
         if (listFiles == null || listFiles.length == 0) {
             System.out.println("Folder doesn't contains any files");
+            
         }
         return listFiles;
     }

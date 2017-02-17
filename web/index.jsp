@@ -1,4 +1,4 @@
-<%@ page import="turorial.Global" %>
+<%@ page import="tutorial.Global" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -144,7 +144,7 @@
 <div class="login-page">
     <div class="form">
         <% if (request.getParameter("form-login") != null) {%>
-        <form class="login-form" action="${pageContext.request.contextPath}/login_servlet" method="post">
+        <form class="login-form" action="${pageContext.request.contextPath}/LoginServlet" method="post">
             <input type="text" placeholder="name" name="name"/>
             <input type="password" placeholder="password" name="password"/>
             <button>create</button>
@@ -152,7 +152,7 @@
             <p class="message">Already registered? <a href="index.jsp">Sign In</a></p>
         </form>
         <% } else {%>
-        <form class="login-form" action="${pageContext.request.contextPath}/login_servlet" method="post">
+        <form class="login-form" action="${pageContext.request.contextPath}/LoginServlet" method="post">
             <input type="text" placeholder="username" name="name"/>
             <input type="password" placeholder="password" name="password"/>
             <input type="hidden" name="login" value="login">

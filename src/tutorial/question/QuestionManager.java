@@ -1,5 +1,4 @@
 package tutorial.question;
-
 import tutorial.Utils;
 import tutorial.question.theme.*;
 
@@ -63,7 +62,8 @@ public class QuestionManager {
         if (list.isEmpty()) {
             return generateQuestion(new String[]{""});
         } else {
-            int index = Utils.generateRandom(0, list.size() - 1);
+           //jnnunujnjnjunj
+           int index = Utils.generateRandom(0, list.size() - 1);
             return list;
         }
     }

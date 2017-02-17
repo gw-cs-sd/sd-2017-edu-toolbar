@@ -1,8 +1,8 @@
-<%@ page import="turorial.Global" %>
+<%@ page import="tutorial.Global" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Java</title>
+    <title>Codingfolio</title>
 </head>
 
 <style>
@@ -15,7 +15,7 @@
     header, footer {
         padding: 1em;
         color: white;
-        background-color: #00897B;
+      
     }
 
     td {
@@ -50,15 +50,17 @@ Hello, <%=name%>
 
 <div class="container">
     <header>
-        <h1>Java tutorial</h1>
+        <h1 style="font-size:50px">Codingfolio</h1>
     </header>
     <table align="center">
         <tr>
             <td>
                 <form action="${pageContext.request.contextPath}/menu_servlet" method="post">
-                    <input type="text" size="40" name="tags" placeholder="Write tags separated by spaces">
-                    <input type="submit" name="question" value="Generate question for tags"/>
+                	<h4>Enter Topics
+                    <input type="text" size="40" name="tags" placeholder="Topics:for, if, array, while, string, math">
+                    <input type="submit" name="question" value="Enter"/></h4>
                 </form>
+                	<h4 style="text-align:center"> You can put more than one topic</h4>
             </td>
         </tr>
     </table>

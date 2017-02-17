@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-class RuntimeCompiler {
+public class RuntimeCompiler {
     /**
      * The Java Compiler
      */
@@ -47,7 +47,7 @@ class RuntimeCompiler {
      *                              not in the classpath).
      */
     public RuntimeCompiler() {
-        this.javaCompiler = ToolProvider.getSystemJavaCompiler();
+        this.javaCompiler = ToolProvider.getSystemJavaCompiler(); 
         if (javaCompiler == null) {
             throw new NullPointerException(
                     "No JavaCompiler found. Make sure to run this with "
@@ -81,7 +81,7 @@ class RuntimeCompiler {
      *
      * @return Whether the compilation succeeded
      */
-    boolean compile() {
+   public boolean compile() {
         DiagnosticCollector<JavaFileObject> diagnosticsCollector =
                 new DiagnosticCollector<JavaFileObject>();
         JavaCompiler.CompilationTask task =

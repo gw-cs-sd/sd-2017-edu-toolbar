@@ -17,13 +17,20 @@ public class IF extends QuestionFather {
     String [] ifarray = new String [] {
 			
 			
-		     "Write a code to check if A is greater than B ?",
-		     "Write a code to display true  if person is a male  ",
-		     "Write a code to display true if a persons age is > 25",
+		     "Write a code to display true if A is greater than B ?",
+		     "Write a code to display true if person is a male  ",
+		     "Write a code to display true if a persons age is > 20",
 		     "Write a code to display true if a day is MONDAY",
 		     "Write a code to display true if a given number is even"
 		       
 	    };
+    String [] anscodeifarray = new String[] {
+        "if(A<B){...}",
+        "if(person=='male'){...}",
+        "if(age<20){...}",
+        "if(day=='MONDAY'){...}",
+        "if(number%2==0){...}"
+    };
 
     private String generateSolution1(int n, String str) {
         String sol;
@@ -67,8 +74,9 @@ public class IF extends QuestionFather {
     	 Random rand = new Random();
     	 int i1 = rand.nextInt(5);
     	 String quest  = ifarray[i1];
+    	 String ans = anscodeifarray[i1];
     	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, " "," ");
+    	 return new QA(quest, ans," ");
     	
     }
     

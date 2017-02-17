@@ -17,13 +17,20 @@ public class For extends QuestionFather {
     String [] farray = new String [] {
 			
 			
-		     "Write a code to display the first 10 numbers 1,2,...10",
-		     "Write a code to display numbers in reverse 10,9,8,...1",
+		     "Write a code to display the first 20 numbers 1,2,...20",
+		     "Write a code to display numbers in reverse 20...2,1",
 		     "Write a code to display numbers 2,4,6,8...20",
 		     "Write a code to display numbers 1,3,5,7.....21",
 		     "Write a code to display the string HELLO WORLD in reverse."
 		       
 	    };
+    String [] anscodefarray = new String [] {
+        "for(i =1;i <=20; i++){...}",
+        "for(i = 20 ;i>=1; i--){...}",
+        "for(i = 2; i<=20; i+=2){...}",
+        "for(i = 1; i<=21; i+=2){...}",
+        "for(i = str.length()-1; i>=0; i--){...}"
+    };
 
     private String generateSolution1(int n, String str) {
         String sol;
@@ -38,7 +45,7 @@ public class For extends QuestionFather {
 
     @Override
     public String[] getTagsForQuestion1() {
-        return new String[]{"for"};
+        return new String[]{};
     }
 
     @Override
@@ -67,8 +74,9 @@ public class For extends QuestionFather {
     	 Random rand = new Random();
     	 int i1 = rand.nextInt(5);
     	 String quest  = farray[i1];
+    	 String ans = anscodefarray[i1];
     	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, " "," ");
+    	 return new QA(quest, ans," ");
     	
     }
     

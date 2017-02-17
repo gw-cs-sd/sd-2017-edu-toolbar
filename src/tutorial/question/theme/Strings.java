@@ -23,6 +23,13 @@ public class Strings extends QuestionFather {
 		     "Write a code to display the number of words in a sentence"
 		       
 	    };
+    String [] ansstringsarray = new String [] {
+        "str.length();...",
+        "str.reverse();...",
+        "str.include(\"CHA\")...",
+        "str.concat(str2)...",
+        "str.split(\" \").length()..."
+    };
     private String generateSolution1(int n, String b) {
         String sol;
         sol = "int n=" + n + ";\n" +
@@ -42,8 +49,9 @@ public class Strings extends QuestionFather {
     	 Random rand = new Random();
     	 int i1 = rand.nextInt(5);
     	 String quest  = stringsarray[i1];
+    	 String ans = ansstringsarray[i1];
     	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, " "," ");
+    	 return new QA(quest, ans," ");
     	
     }
     

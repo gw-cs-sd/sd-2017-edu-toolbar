@@ -18,7 +18,13 @@ public class Array extends QuestionFather {
 		       
 	    };
 	
-	
+	String [] ansarray = new String [] {
+     "for(i = 0;i<array.length;i++){sum=sum+array[i];...}",
+     "for(i= 0;i<array.length;i++){if(array[i]%2==0){sum=sum+array[i];...}}",
+     "for(i= 0;i<array.length;i++){if(array[i]%2!=0){sum=sum+array[i];...}}",
+     "for(i= 0;i<array.length;i++){if(i==0){greatest = array[i];}else if(greatest<array[i]){greatest = array[i];}...}",
+     "for(i= 0;i<array.length;i++){if(i==0){smallest = array[i];}else if(smallest>array[i]){smallest = array[i];}...}",
+     };
 	
     private int[] generateIntArr(int n, int a, int b) {
         int[] arr = new int[n];
@@ -56,6 +62,7 @@ public class Array extends QuestionFather {
     	 Random rand = new Random();
     	 int i1 = rand.nextInt(5);
     	 String quest  = qarray[i1];
+    	 
     	 System.out.println("Array:teQuestion: i1:"+i1);
     	 return new QA(quest, " "," ");
     	

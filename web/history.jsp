@@ -1,6 +1,6 @@
-<%@ page import="turorial.Global" %>
-<%@ page import="turorial.User" %>
-<%@ page import="turorial.question.QA" %>
+<%@ page import="tutorial.Global" %>
+<%@ page import="tutorial.User" %>
+<%@ page import="tutorial.question.QA" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -62,9 +62,9 @@
         <tr>
             <td>
                 Question: <%=qa.get(i).getQuestion()%>
-                </br>
+                <br>
                 Your answer:  <%=ans.get(i)%>
-                </br>
+                <br>
             </td>
         </tr>
         <%

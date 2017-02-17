@@ -17,14 +17,20 @@ public class While extends QuestionFather {
     String [] whilearray = new String [] {
 			
 			
-		     "Write a code to display the first 10 numbers 1,2,...10 using while statement",
-		     "Write a code to display the first 5 even numbers from 1 to 50",
-		     "Write a code to sum the numbers 1,2,3.. until the sum is greater than 30",
+		     "Write a code to display the first 20 numbers 1,2,...20 using while statement",
+		     "Write a code to display the first 5 even numbers from 1 to 20",
+		     "Write a code to sum the numbers 1,2,3.. until the sum is greater than 20",
 		     "Write a code to sum the digits of a given number ",
 		     "Write a code to display an integer number in reverse "
 		       
 	    };
-
+String [] anscode = new String [] {
+    "while(i<=20){...}",
+    "while(i<=20){if(i%2==0&&count<=5){...}}",
+    "while(sum<20){sum=sum+count;...}",
+    "while(i!=0){sum+=i%10;i=i/10}",
+    "while(i!=0){System.out.println(i%10);i=i/10}"
+};
     private String generateSolution1(int n, String str) {
         String sol;
         sol = "String str =\"" + str + "\";\n" +
@@ -67,8 +73,9 @@ public class While extends QuestionFather {
     	 Random rand = new Random();
     	 int i1 = rand.nextInt(5);
     	 String quest  = whilearray[i1];
+    	 String ans = anscode[i1];
     	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, " "," ");
+    	 return new QA(quest, ans," ");
     	
     }
     
