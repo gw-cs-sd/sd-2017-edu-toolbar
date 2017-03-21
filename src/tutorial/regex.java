@@ -11,7 +11,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
-public class regex {
+public class Regex {
 
     public static ArrayList<String> regex(String type, String s) {
         ArrayList<String> list = new ArrayList<String>();

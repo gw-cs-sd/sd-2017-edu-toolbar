@@ -5,6 +5,7 @@ import tutorial.question.QA;
 import static tutorial.Utils.generateRandom;
 
 import java.util.Random;
+import tutorial.Utils;
 
 public class Strings extends QuestionFather {
     static String[] voc = {"alligator", "ant", "bear", "bee", "bird", "camel", "cat",
@@ -18,7 +19,7 @@ public class Strings extends QuestionFather {
 			
 		     "Write a code to display the number of characters in a String",
 		     "Write a code to reverse a given string ",
-		     "Write a code to check if a given string contains the word CHA",
+		     "Write a code to check if a given string contains the word var1",
 		     "Write a code to add two strings ",
 		     "Write a code to display the number of words in a sentence"
 		       
@@ -26,7 +27,7 @@ public class Strings extends QuestionFather {
     String [] ansstringsarray = new String [] {
         "str.length();...",
         "str.reverse();...",
-        "str.include(\"CHA\")...",
+        "str.include(\"var1\")...",
         "str.concat(str2)...",
         "str.split(\" \").length()..."
     };
@@ -50,8 +51,14 @@ public class Strings extends QuestionFather {
     	 int i1 = rand.nextInt(5);
     	 String quest  = stringsarray[i1];
     	 String ans = ansstringsarray[i1];
+    	 if(i1==2)
+    	 {
+    		 int i = rand.nextInt(28);
+    		 quest = quest.replace("var1", voc[i]);
+    		 ans =ans.replace("var1", voc[i]);
+    	 }
     	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, ans," ");
+    	 return new QA(quest, ans," ",Utils.getCurrentDatePart());
     	
     }
     
@@ -97,7 +104,7 @@ public class Strings extends QuestionFather {
             str = str + back;
         }
         String sol = generateSolution1(n, voc[i]);
-        return new QA(quest, str, sol);
+        return new QA(quest, str, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution2(String str1, String str2) {
@@ -140,7 +147,7 @@ public class Strings extends QuestionFather {
 
         String sol = generateSolution2(voc[i], voc[j]);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution3(String str) {
@@ -165,7 +172,7 @@ public class Strings extends QuestionFather {
             ans = ans + str.charAt(k) + str.charAt(k);
         }
         String sol = generateSolution3(voc[i]);
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution4(String str) {
@@ -192,7 +199,7 @@ public class Strings extends QuestionFather {
         }
 
         String sol = generateSolution4(voc2[i]);
-        return new QA(quest, String.valueOf(count), sol);
+        return new QA(quest, String.valueOf(count), sol,Utils.getCurrentDatePart());
 
     }
 
@@ -222,6 +229,6 @@ public class Strings extends QuestionFather {
         }
 
         String sol = generateSolution5(n, voc[i]);
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 }

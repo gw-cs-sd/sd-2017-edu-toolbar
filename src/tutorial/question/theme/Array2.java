@@ -1,5 +1,6 @@
 package tutorial.question.theme;
 
+import tutorial.Utils;
 import tutorial.question.QA;
 
 import static tutorial.Utils.generateRandom;
@@ -69,7 +70,7 @@ public class Array2 extends QuestionFather {
 
         String ans = String.valueOf((arr.length >= 1) && (arr[0] == arr[arr.length - 1]));
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -108,7 +109,7 @@ public class Array2 extends QuestionFather {
         quest = quest + "], return the sum of all the elementsl.";
 
 
-        return new QA(quest, String.valueOf(sum), sol);
+        return new QA(quest, String.valueOf(sum), sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -178,7 +179,7 @@ public class Array2 extends QuestionFather {
         }
         ans = ans + "]";
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -240,7 +241,7 @@ public class Array2 extends QuestionFather {
         }
         ans = ans + "]";
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
 
     }
 
@@ -323,6 +324,6 @@ public class Array2 extends QuestionFather {
         str = str + "]";
 
 
-        return new QA(quest, str, sol);
+        return new QA(quest, str, sol,Utils.getCurrentDatePart());
     }
 }

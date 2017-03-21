@@ -1,5 +1,6 @@
 package tutorial.question.theme;
 
+import tutorial.Utils;
 import tutorial.question.QA;
 
 import static tutorial.Utils.generateRandom;
@@ -55,7 +56,7 @@ public class Numbers extends QuestionFather {
         String quest = "Multiply two int: '" + String.valueOf(a) + "' and '" + String.valueOf(b) + "'.";
         int c = a * b;
         String sol = generateSolution1(a, b);
-        return new QA(quest, String.valueOf(c), sol);
+        return new QA(quest, String.valueOf(c), sol,Utils.getCurrentDatePart());
     }
 //returns the value of the first argument raised to the power of the second argument.
 
@@ -76,7 +77,7 @@ public class Numbers extends QuestionFather {
 
         double c = Math.pow(a, b);
         String sol = generateSolution2(a, b);
-        return new QA(quest, String.valueOf(c), sol);
+        return new QA(quest, String.valueOf(c), sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution3(int a, int b) {
@@ -113,7 +114,7 @@ public class Numbers extends QuestionFather {
         }
 
         String sol = generateSolution3(a, b);
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution4(int a, int b) {
@@ -133,7 +134,7 @@ public class Numbers extends QuestionFather {
 
         int c = a % b;
         String sol = generateSolution4(a, b);
-        return new QA(quest, String.valueOf(c), sol);
+        return new QA(quest, String.valueOf(c), sol,Utils.getCurrentDatePart());
     }
 
 
@@ -154,6 +155,6 @@ public class Numbers extends QuestionFather {
 
         int summ = a + b + c;
         String sol = generateSolution5(a, b, c);
-        return new QA(quest, String.valueOf(summ), sol);
+        return new QA(quest, String.valueOf(summ), sol,Utils.getCurrentDatePart());
     }
 }

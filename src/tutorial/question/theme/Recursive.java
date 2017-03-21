@@ -1,5 +1,6 @@
 package tutorial.question.theme;
 
+import tutorial.Utils;
 import tutorial.question.QA;
 
 import static tutorial.Utils.generateRandom;
@@ -63,7 +64,7 @@ public class Recursive extends QuestionFather {
 
         int ans = fibonacci(n);
         String sol = generateSolution1(n);
-        return new QA(quest, String.valueOf(ans), sol);
+        return new QA(quest, String.valueOf(ans), sol,Utils.getCurrentDatePart());
     }
 
     public int bunnyEars(int bunnies) {
@@ -96,7 +97,7 @@ public class Recursive extends QuestionFather {
 
         int ans = bunnyEars(n);
         String sol = generateSolution2(n);
-        return new QA(quest, String.valueOf(ans), sol);
+        return new QA(quest, String.valueOf(ans), sol,Utils.getCurrentDatePart());
     }
 
     public int factorial(int n) {
@@ -122,7 +123,7 @@ public class Recursive extends QuestionFather {
 
         int ans = factorial(n);
         String sol = generateSolution3(n);
-        return new QA(quest, String.valueOf(ans), sol);
+        return new QA(quest, String.valueOf(ans), sol,Utils.getCurrentDatePart());
     }
 
     public int triangle(int rows) {
@@ -156,7 +157,7 @@ public class Recursive extends QuestionFather {
 
         int ans = triangle(n);
         String sol = generateSolution4(n);
-        return new QA(quest, String.valueOf(ans), sol);
+        return new QA(quest, String.valueOf(ans), sol,Utils.getCurrentDatePart());
     }
 
     public int sumDigits(int n) {
@@ -187,6 +188,6 @@ public class Recursive extends QuestionFather {
 
         int ans = sumDigits(n);
         String sol = generateSolution5(n);
-        return new QA(quest, String.valueOf(ans), sol);
+        return new QA(quest, String.valueOf(ans), sol,Utils.getCurrentDatePart());
     }
 }

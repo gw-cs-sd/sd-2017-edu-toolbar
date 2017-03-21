@@ -13,6 +13,7 @@ public class QuestionManager {
         IF ifobj = new IF();
         While whileobj = new While();
         Strings strings = new Strings();
+        Numbers numobj=new Numbers();
 
         List<QA> list = new ArrayList<>();
 
@@ -57,13 +58,19 @@ public class QuestionManager {
                    list.add(qa5);
                  }
         	}
+        	if(tag.equalsIgnoreCase("math")){
+                QA qa5 = numobj.generateQuestion1();
+                if (qa5 != null) {
+              	//  System.out.println("Questionmanager: question added for tag "+tag);
+                   list.add(qa5);
+                 }
+        	}
         }
 
         if (list.isEmpty()) {
             return generateQuestion(new String[]{""});
         } else {
            //jnnunujnjnjunj
-           int index = Utils.generateRandom(0, list.size() - 1);
             return list;
         }
     }

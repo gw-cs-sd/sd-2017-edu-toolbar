@@ -13,9 +13,14 @@ import tutorial.question.QuestionManager;
 import tutorial.question.Theme;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JOptionPane;
 
@@ -28,6 +33,8 @@ public class Global {
     private JavaCodeRunner javaCodeRunner;
     private QuestionManager questionManager;
     private User user;
+    private static Properties prop = new Properties();
+    
 
     public static Global getInstance() {
         Global localInstance = instance;
@@ -46,13 +53,20 @@ public class Global {
         javaCodeRunner = new JavaCodeRunner();
         questionManager = new QuestionManager();
         user = new User();
+        try {
+            prop.load(Global.class.getClassLoader().getResourceAsStream("application.properties"));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Global.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public List getQAForTags(String string) {
     	System.out.println("Global: getQAforTags method");
        try
        {
-    	   return questionManager.generateQuestion(string.split("\\s+"));
+    	   return questionManager.generateQuestion(string.split(","));
        }
        catch (Exception e) {
 		return null;
@@ -99,7 +113,9 @@ public class Global {
             }
         }
         }
-        user = new User(login, password);
+        user = new User();
+        user.setLogin(login);
+        user.setPassword(password);
         saveUser();
         System.out.println("user save");
         return true;
@@ -126,7 +142,21 @@ public class Global {
         }
         return false;
     }
-
+    
+    public User getCurrentUserObj(String username){
+        User curr=null;
+            File file=new File(prop.getProperty("store")+"\\"+ username);
+            ObjectMapper mapper = new ObjectMapper();
+                try {
+                     curr = mapper.readValue(file, User.class);
+                   
+                } catch (Exception e) {
+                    System.err.println("Can't read file");
+                    e.printStackTrace();
+                }
+        return curr;
+    }
+    
     public void saveUser() {
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = "{\"login\":\""+user.getLogin()+"\",\"password\":\""+user.getPassword()+"\"}";
@@ -138,7 +168,11 @@ public class Global {
         	jsonString = mapper.writeValueAsString(myuser);
         	//JOptionPane.showConfirmDialog(null, jsonString);
         	System.out.println(jsonString);
-            writer.writeValue(new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users\\" + user.getLogin()), myuser);
+                File userFile=new File(prop.getProperty("store")+"\\" + user.getLogin());
+                if(userFile!=null && userFile.exists()){
+                    userFile.delete();
+                }
+            writer.writeValue(new File(prop.getProperty("store")+"\\" + user.getLogin()), user);
         } catch (IOException e) {
             System.err.println("Can't save user");
             e.printStackTrace();
@@ -146,7 +180,7 @@ public class Global {
     }
 
     public static File checkUsersFolder() {
-        File file = new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users");
+        File file = new File(prop.getProperty("store"));
         if (!file.isDirectory() || !file.exists()) {
             System.out.println("Can't find users folder. Creating new");
             //File userfile = new File("F:\\Own Software House data\\Java\\codingfolio\\TestQuiz2\\users\\"+);
@@ -165,4 +199,10 @@ public class Global {
         }
         return listFiles;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+    
+    
 }

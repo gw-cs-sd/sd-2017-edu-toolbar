@@ -1,10 +1,12 @@
 package tutorial.question.theme;
 
+import java.util.Date;
 import tutorial.question.QA;
 
 import static tutorial.Utils.generateRandom;
 
 import java.util.Random;
+import tutorial.Utils;
 
 public class Array extends QuestionFather {
 	String [] qarray = new String [] {
@@ -64,7 +66,7 @@ public class Array extends QuestionFather {
     	 String quest  = qarray[i1];
     	 
     	 System.out.println("Array:teQuestion: i1:"+i1);
-    	 return new QA(quest, " "," ");
+    	 return new QA(quest, " "," ",Utils.getCurrentDatePart());
     	
     }
     
@@ -89,7 +91,7 @@ public class Array extends QuestionFather {
 
         String ans = String.valueOf((arr.length >= 1) && (arr[0] == arr[arr.length - 1]));
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -128,7 +130,7 @@ public class Array extends QuestionFather {
         quest = quest + "], return the sum of all the elementsl.";
 
 
-        return new QA(quest, String.valueOf(sum), sol);
+        return new QA(quest, String.valueOf(sum), sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -198,7 +200,7 @@ public class Array extends QuestionFather {
         }
         ans = ans + "]";
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     @Override
@@ -260,7 +262,7 @@ public class Array extends QuestionFather {
         }
         ans = ans + "]";
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
 
     }
 
@@ -343,6 +345,6 @@ public class Array extends QuestionFather {
         str = str + "]";
 
 
-        return new QA(quest, str, sol);
+        return new QA(quest, str, sol,Utils.getCurrentDatePart());
     }
 }

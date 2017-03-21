@@ -1,5 +1,6 @@
 package tutorial.question.theme;
 
+import tutorial.Utils;
 import tutorial.question.QA;
 
 import static tutorial.Utils.generateRandom;
@@ -61,7 +62,7 @@ public class Beggining extends QuestionFather {
 
         String ans = front + back;
         String sol = generateSolution1(n, voc[i]);
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution2(String str) {
@@ -84,13 +85,13 @@ public class Beggining extends QuestionFather {
         String sol = generateSolution2(voc[i]);
 
         String str = new String(voc[i]);
-        if (str.length() <= 1) return new QA(quest, str, sol);
+        if (str.length() <= 1) return new QA(quest, str, sol,Utils.getCurrentDatePart());
 
         String mid = str.substring(1, str.length() - 1);
         // last + mid + first
         String ans = str.charAt(str.length() - 1) + mid + str.charAt(0);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution3(int n) {
@@ -109,7 +110,7 @@ public class Beggining extends QuestionFather {
         String ans = String.valueOf((n % 3 == 0) || (n % 5 == 0));
         String sol = generateSolution3(n);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution4(String str) {
@@ -141,7 +142,7 @@ public class Beggining extends QuestionFather {
         String ans = front + str + front;
         String sol = generateSolution4(voc[i]);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution5(int n, int m) {
@@ -164,6 +165,6 @@ public class Beggining extends QuestionFather {
         String ans = String.valueOf((n1 >= 10 && n1 <= 20) || (n2 >= 10 && n2 <= 20));
         String sol = generateSolution5(n1, n2);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 }

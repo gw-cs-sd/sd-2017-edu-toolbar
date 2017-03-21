@@ -5,6 +5,7 @@ import tutorial.question.QA;
 import static tutorial.Utils.generateRandom;
 
 import java.util.Random;
+import tutorial.Utils;
 
 public class IF extends QuestionFather {
 
@@ -17,19 +18,19 @@ public class IF extends QuestionFather {
     String [] ifarray = new String [] {
 			
 			
-		     "Write a code to display true if A is greater than B ?",
-		     "Write a code to display true if person is a male  ",
-		     "Write a code to display true if a persons age is > 20",
-		     "Write a code to display true if a day is MONDAY",
-		     "Write a code to display true if a given number is even"
+		     "Write a code to display true if var1 is greater than var2 ?",
+		     "Write a code to display true if person is a var1  ",
+		     "Write a code to display true if a person age is > var1",
+		     "Write a code to display true if a day is var1",
+		     "Write a code to display true if a given number is var1"
 		       
 	    };
     String [] anscodeifarray = new String[] {
-        "if(A<B){...}",
-        "if(person=='male'){...}",
-        "if(age<20){...}",
-        "if(day=='MONDAY'){...}",
-        "if(number%2==0){...}"
+        "if(var1<var2){...}",
+        "if(person==\"var1\"){...}",
+        "if(age>var1){...}",
+        "if(day=='var1'){...}",
+        "if(number%2==var1){...}"
     };
 
     private String generateSolution1(int n, String str) {
@@ -45,6 +46,7 @@ public class IF extends QuestionFather {
 
     @Override
     public String[] getTagsForQuestion1() {
+
         return new String[]{"for"};
     }
 
@@ -75,8 +77,54 @@ public class IF extends QuestionFather {
     	 int i1 = rand.nextInt(5);
     	 String quest  = ifarray[i1];
     	 String ans = anscodeifarray[i1];
-    	 System.out.println("For.java:teQuestion: i1:"+i1);
-    	 return new QA(quest, ans," ");
+     	
+     	System.out.println(i1+" : numb");
+     	String quests = "";
+     	if(i1==0)
+     	{
+     	
+     		int i = rand.nextInt(28);
+         	String var1 = voc[i];
+         	String var2 = voc[rand.nextInt(28)];
+     		quests =quest.replace("var1", var1).replace("var2", var2);
+         	ans = anscodeifarray[0].replace("var1", var1).replace("var2", var2);
+         	
+     	}
+     	else if(i1==1)
+     	{
+     	String genders[] = {"male","female"};	
+     	String gender = genders[rand.nextInt(2)];
+ 		quests =quest.replace("var1", gender);
+ 		ans = anscodeifarray[1].replace("var1", gender);
+        
+     	}
+     	else if(i1==2)
+     	{
+     		int num1 = rand.nextInt(60)+5;
+     		quests =quest.replace("var1", num1+"");
+         	ans= anscodeifarray[2].replace("var1", num1+"");
+         	
+     	}
+     	else if(i1==3)
+     	{
+     	String days[] = {"MONDAY","TUESDAY","THURSDAY","WEDNESDAY","FRIDAY","SATURDAY","SUNDAY"};	
+     	String day = days[rand.nextInt(7)];
+ 		quests =quest.replace("var1", day);
+ 		ans = anscodeifarray[3].replace("var1", day);
+     	
+     	}
+     	else if(i1==4)
+     	{
+     		String numbers[] = {"even","odd"};	
+     		int t = rand.nextInt(2);
+         	String number = numbers[t];
+     		quests =quest.replace("var1", number);
+     		
+     		ans= anscodeifarray[4].replace("var1", t+"");
+         	
+     	}
+     	
+    	 return new QA(quests, ans," ",Utils.getCurrentDatePart());
     	
     }
     
@@ -97,7 +145,7 @@ public class IF extends QuestionFather {
 
         String ans = front + back;
         String sol = generateSolution1(n, voc[i]);
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution2(String str) {
@@ -120,13 +168,13 @@ public class IF extends QuestionFather {
         String sol = generateSolution2(voc[i]);
 
         String str = new String(voc[i]);
-        if (str.length() <= 1) return new QA(quest, str, sol);
+        if (str.length() <= 1) return new QA(quest, str, sol,Utils.getCurrentDatePart());
 
         String mid = str.substring(1, str.length() - 1);
         // last + mid + first
         String ans = str.charAt(str.length() - 1) + mid + str.charAt(0);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution3(int n) {
@@ -145,7 +193,7 @@ public class IF extends QuestionFather {
         String ans = String.valueOf((n % 3 == 0) || (n % 5 == 0));
         String sol = generateSolution3(n);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution4(String str) {
@@ -177,7 +225,7 @@ public class IF extends QuestionFather {
         String ans = front + str + front;
         String sol = generateSolution4(voc[i]);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 
     private String generateSolution5(int n, int m) {
@@ -200,6 +248,6 @@ public class IF extends QuestionFather {
         String ans = String.valueOf((n1 >= 10 && n1 <= 20) || (n2 >= 10 && n2 <= 20));
         String sol = generateSolution5(n1, n2);
 
-        return new QA(quest, ans, sol);
+        return new QA(quest, ans, sol,Utils.getCurrentDatePart());
     }
 }
