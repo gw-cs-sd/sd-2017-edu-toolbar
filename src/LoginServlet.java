@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import javax.servlet.http.HttpSession;
 
 
 @WebServlet("/login_servlet")
@@ -43,14 +42,9 @@ public class LoginServlet extends HttpServlet {
                 boolean res = global.login(name, password);
                 System.out.println("res = " + res);
                 if (res) {
-                    HttpSession session=request.getSession();
-                    session.setAttribute("username", name);
-                    
                     getServletContext().getRequestDispatcher("/menu.jsp").forward(request, response);
                 } else {
-                	//getServletContext().getRequestDispatcher("/menu.jsp").forward(request, response);
-                         
-                	getServletContext().getRequestDispatcher("/index.jsp?login=" + res).forward(request, response);
+                    getServletContext().getRequestDispatcher("/index.jsp?login=" + res).forward(request, response);
                 }
             }
         }

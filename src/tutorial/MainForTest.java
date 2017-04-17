@@ -1,7 +1,21 @@
 package tutorial;
 
+import tutorial.code.ConsoleOutputCapturer;
+import tutorial.code.JavaCodeRunner;
+
 public class MainForTest {
     public static void main(String... args) {
+    	ConsoleOutputCapturer coc=new ConsoleOutputCapturer();
+    	JavaCodeRunner javaCodeRunner=new JavaCodeRunner();
+    	String program="public class MainClass{public static void main(){System.out.print(2);}}";
+    	coc.start();
+    	javaCodeRunner.runCode("public class MainClass\n{public static void main()\n{System.out.print(\"2\");}}");
+    	String res=coc.stop();
+        System.out.println("Res = " + res);        
+        coc.start();
+    	javaCodeRunner.runCode(program);
+    	res=coc.stop();
+    	System.out.println(res);
         int a=69;
         int b=46;
         int more = (a > b) ? a : b;

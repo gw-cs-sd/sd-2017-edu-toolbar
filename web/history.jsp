@@ -55,6 +55,9 @@
     <header>
         <h1>Questions history</h1>
     </header>
+   <ul id="questions" style="text-align: left;">
+
+</ul>
     <table align="center">
         <%
             for (int i = 0; i < qa.size(); i++) {
@@ -62,9 +65,9 @@
         <tr>
             <td>
                 Question: <%=qa.get(i).getQuestion()%>
-                <br>
+                </br>
                 Your answer:  <%=ans.get(i)%>
-                <br>
+                </br>
             </td>
         </tr>
         <%
@@ -72,5 +75,44 @@
         %>
     </table>
 </div>
+<script type="text/javascript">
+function setCookie(c_name,value){
+    var exdays=1000;
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + 1000);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+  }
+function getCookie(c_name)
+    {
+    var c_value = document.cookie;
+    var c_start = c_value.indexOf(" " + c_name + "=");
+    if (c_start == -1)
+      {
+      c_start = c_value.indexOf(c_name + "=");
+      }
+    if (c_start == -1)
+      {
+      c_value = null;
+      }
+    else
+      {
+      c_start = c_value.indexOf("=", c_start) + 1;
+      var c_end = c_value.indexOf(";", c_start);
+      if (c_end == -1)
+      {
+    c_end = c_value.length;
+    }
+    c_value = unescape(c_value.substring(c_start,c_end));
+    }
+    return c_value;
+    }
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    var html="";for(var i=1;i<getCookie('questions').split('|').length;i++){ if(getCookie('questions').split('|')[i]!="") html=html+"<li>"+getCookie('questions').split('|')[i]+"</li>"; }
+    document.getElementById('questions').innerHTML=html;
+</script>
 </body>
 </html>

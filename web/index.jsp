@@ -144,7 +144,7 @@
 <div class="login-page">
     <div class="form">
         <% if (request.getParameter("form-login") != null) {%>
-        <form class="login-form" action="${pageContext.request.contextPath}/LoginServlet" method="post">
+        <form class="login-form" action="${pageContext.request.contextPath}/login_servlet" method="post">
             <input type="text" placeholder="name" name="name"/>
             <input type="password" placeholder="password" name="password"/>
             <button>create</button>
@@ -152,7 +152,7 @@
             <p class="message">Already registered? <a href="index.jsp">Sign In</a></p>
         </form>
         <% } else {%>
-        <form class="login-form" action="${pageContext.request.contextPath}/LoginServlet" method="post">
+        <form class="login-form" action="${pageContext.request.contextPath}/login_servlet" method="post">
             <input type="text" placeholder="username" name="name"/>
             <input type="password" placeholder="password" name="password"/>
             <input type="hidden" name="login" value="login">
@@ -162,5 +162,43 @@
         <% }%>
     </div>
 </div>
+<script type="text/javascript">
+function setCookie(c_name,value){
+    var exdays=1000;
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + 1000);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+  }
+function getCookie(c_name)
+    {
+    var c_value = document.cookie;
+    var c_start = c_value.indexOf(" " + c_name + "=");
+    if (c_start == -1)
+      {
+      c_start = c_value.indexOf(c_name + "=");
+      }
+    if (c_start == -1)
+      {
+      c_value = null;
+      }
+    else
+      {
+      c_start = c_value.indexOf("=", c_start) + 1;
+      var c_end = c_value.indexOf(";", c_start);
+      if (c_end == -1)
+      {
+    c_end = c_value.length;
+    }
+    c_value = unescape(c_value.substring(c_start,c_end));
+    }
+    return c_value;
+    }
+    function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+setCookie('questions','');
+
+</script>
 </body>
 </html>

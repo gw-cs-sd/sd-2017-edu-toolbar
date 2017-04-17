@@ -37,9 +37,10 @@ public class Types {
         solnText.append("        " + aggType + " " + variable1 + " = " + sampleToString() + ";\n");
         String variable2 = "var2";
         solnText.append("        int " + variable2 + " = " + aggPropertyCode(aggProperties[rNum], variable1) + ";\n");
-        solnText.append("        System.out.println(\"" + aggProperties[rNum] + " of the " + this.aggregateName + ": \" + " + variable2 + ");\n");
+        solnText.append("        System.out.println("+variable2+");\n");
         solnText.append("    }\n");
         solnText.append("}\n");
+        System.out.println("soln:"+solnText.toString());
         return solnText.toString();
     }
 

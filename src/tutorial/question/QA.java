@@ -9,21 +9,11 @@ public class QA {
     private String answer;
     @JsonProperty
     private String code;
-    @JsonProperty
-    private String date;
-    @JsonProperty
-    private String topic;
 
-    public QA(){
-        
-    }
-    
-    public QA(String question, String answer, String code,String date) {
+    public QA(String question, String answer, String code) {
         this.question = question;
         this.answer = answer;
         this.code = code;
-        this.date=date;
-        this.topic=topic;
     }
 
     public String getQuestion() {
@@ -49,22 +39,4 @@ public class QA {
     public void setCode(String code) {
         this.code = code;
     }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTopic() {
-        return topic;
-    }
-
-    public void setTopic(String topic) {
-        this.topic = topic;
-    }
-    
-    
 }
