@@ -5,7 +5,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Java</title>
+    <title>Codingfolio</title>
 </head>
 
 <style>
@@ -18,7 +18,7 @@
     header, footer {
         padding: 1em;
         color: white;
-        background-color: #00897B;
+        background-color: #55b561;
     }
 
     td {
@@ -36,6 +36,17 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+    .menubutton {
+    background-color: white; /* Green */
+    border: none;
+    color: #4CAF50;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
 </style>
 
 <body>
@@ -48,12 +59,12 @@
 
 %>
 <form action="menu.jsp" method="post">
-    <input type="submit" name="Home" value="Home"/>
+    <input type="submit" class="menubutton" name="Home" value="Home"/>
 </form>
 
 <div class="container">
     <header>
-        <h1>Questions history</h1>
+        <h1 style="font-size:50px">Questions history</h1>
     </header>
    <ul id="questions" style="text-align: left;">
 

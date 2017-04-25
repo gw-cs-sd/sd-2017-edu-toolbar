@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Java</title>
+    <title>Codingfolio</title>
 </head>
 
 <style>
@@ -132,16 +132,19 @@
 <%
 } else if (request.getParameter("register") != null) {
 %>
-<h1>You can't use this login</h1>
+<h1>This account is already registered</h1>
 <%
 } else if (request.getParameter("login") != null) {
 %>
-<h1>Wrong login or password</h1>
+<h1>Wrong ID or password</h1>
 <%
     }
 %>
 
 <div class="login-page">
+    <header>
+        <h1 style="font-size:50px; color:white">Codingfolio</h1>
+    </header>
     <div class="form">
         <% if (request.getParameter("form-login") != null) {%>
         <form class="login-form" action="${pageContext.request.contextPath}/login_servlet" method="post">

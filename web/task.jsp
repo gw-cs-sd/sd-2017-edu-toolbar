@@ -3,7 +3,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Java</title>
+    <title>Codingfolio</title>
 </head>
 <style>
     div.container {
@@ -15,7 +15,7 @@
     header, footer {
         padding: 1em;
         color: white;
-        background-color: #00897B;
+        background-color: #55b561;
     }
 
     body {
@@ -28,6 +28,28 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
+     .button {
+    background-color: #4c9656;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+}
+.menubutton {
+    background-color: white; /* Green */
+    border: none;
+    color: #4CAF50;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+}
 </style>
 
 <body>
@@ -65,13 +87,14 @@
     String score = request.getParameter("score");
 %>
 <form action="menu.jsp" method="post">
-    <input type="submit" name="Home" value="Home"/>
+    <input type="submit" class="menubutton" name="Home" value="Home"/>
 </form>
 <div class="container">
 
     <header>
-        <h1>Task</h1>
+        <h1 style="font-size:50px">Question</h1>
     </header>
+    <h3>
     <% if(lq!=null)  for(Object ob2:lq) {
     	QA qa = (QA)ob2;
     	 out.println(qa.getQuestion()+"<br/>");
@@ -80,7 +103,7 @@
     else out.println(question+"<br/>");
     	
        	%> 
-   
+   </h3>
     </br>
 
 
@@ -90,7 +113,8 @@
         <textarea name="code" rows="20" cols="100" form="usrform">
     <%=code%>
     </textarea>
-            <input type="submit" name="Check" value="Check"/>
+    		<br/>
+            <input type="submit" class="button" name="Check" value="Check"/>
             <input type="hidden" name="ans" value="<%=ans%>">
             <input type="hidden" name="question" value="<%=question%>">
             <input type="hidden" name="ans_code" value="<%=ansCode%>">
@@ -98,17 +122,19 @@
         </form>
 
         <form action="${pageContext.request.contextPath}/menu_servlet" method="post" id="usrform">
-            <input type="submit" name="New question" value="New question"/>
+            <input type="submit" class="button" name="New question" value="New question"/>
             <input type="hidden" name="tags" value="<%=tags%>">
         </form>
 
         <% 
+        if(request.getAttribute("code") != null)
             if (isTrue) {
         %>
-        <h2>You are right!</h2>
+        <h2>Correct!</h2>
         <h2>Try another question</h2>
         <% } else {%>
-        <h2>You are wrong =( Try again</h2>
+        <h2>Wrong</h2>
+        <h2>Try again</h2>
         <%
                 }
                     %>
